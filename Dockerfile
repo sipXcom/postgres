@@ -12,7 +12,6 @@ RUN mkdir -p /var/lib/pgsql && chown -R postgres:postgres /var/lib/pgsql
 USER root
 RUN service postgresql initdb
 
+VOLUME ["/var/lib/pgsql/"]
 USER postgres
-
-
 CMD /usr/bin/postmaster -p 5432 -D /var/lib/pgsql/data
